@@ -1,0 +1,92 @@
+body {
+	font-family: NeuzeitGro,sans-serif;
+}
+
+table {
+	width: 100%;
+	color: #061b2b;
+}
+
+a {
+	text-decoration: none;
+}
+
+td.avatar {
+	width: 120px;
+	text-align: center;
+}
+
+td.avatar img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+td.name {
+	width: 450px;
+	font-size: 40px;
+}
+
+td.name,
+a,
+a:visited {
+	color: #212844;
+}
+
+
+td.company {
+	font-weight: bold;
+}
+
+td.donate {
+	text-align: right;
+	width: 100px;
+}
+
+/* Progress bars */
+
+td.projectProgress 
+{
+   width: auto;
+   position: relative;
+   padding: 0px 12px !important;
+}
+
+.projectProgress span 
+{
+   display: block;
+   position: absolute;
+   height: 100%;
+}
+
+/* Position the progress bar and amount on top of one another */
+.progressAmountContainer,
+.progressBarContainer 
+{
+   white-space: nowrap;
+   overflow: hidden;
+   position: absolute;
+   top: 20px;
+   left: 0;
+   width: 100%;
+   height: 60px;
+}
+
+.progressBarContainer 
+{
+   background: rgba(25, 25, 25, .1);
+}
+
+.progressAmountContainer
+{
+	font-size: 50px;
+	padding-left: 20px;
+}
+
+.projectProgress span.progressBar 
+{
+   background-color: #bdecde;
+}
+
+
+/* End Progress bars */

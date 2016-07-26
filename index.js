@@ -6,6 +6,8 @@ var requestModule = require("request")
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function (req, res) {
 	// TODO: show help instead
 	res.send("Use <a href='team/29238'>team/29238</a>")
@@ -26,10 +28,13 @@ function getTeamInfo(teamID, res) {
 	requestModule({ url: teamInfoAPIPrefix + teamID }, function(error, response, body) {
 		if (!error && response.statusCode == 200) {
 			var teamInfo = JSON.parse(body);
-			res.render('dash', teamInfo);
+			if (teamInfo.teamID > 0) {
+				res.render('dash', teamInfo);
+			} else {
+				res.render('error', {error: "Failed to parse team info"});
+			}
 		} else {
-			// TODO: handle error
-			console.log(error);
+			res.render('error', error);
 		}
 	});
 }
