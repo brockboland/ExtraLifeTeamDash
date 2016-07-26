@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/brockboland/ExtraLifeTeamDash/issues"
   },
-  "homepage": "https://github.com/brockboland/ExtraLifeTeamDash#readme"
+  "homepage": "https://github.com/brockboland/ExtraLifeTeamDash#readme",
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "request": "^2.74.0"
+  }
 }
