@@ -3,10 +3,39 @@
 
 <style>
 
+table {
+	width: 100%;
+}
+
+td.avatar {
+	width: 120px;
+	text-align: center;
+}
+
+td.avatar img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+td.name {
+	width: 350px;
+}
+
+td.company {
+	font-size: 200%;
+}
+
+td.donate {
+	text-align: right;
+	width: 100px;
+}
+
 /* Progress bars */
 
 td.projectProgress 
 {
+   width: auto;
    position: relative;
    padding: 0px 12px !important;
 }
@@ -34,7 +63,7 @@ td.projectProgress
 
 .progressBarContainer 
 {
-   background: rgba(255, 255, 255, .15);
+   background: rgba(25, 25, 25, .1);
 }
 
 .progressAmountContainer
@@ -52,46 +81,31 @@ td.projectProgress
 /* End Progress bars */
 
 
-
-
-table {
-	width: 100%;
-}
-
-.avatar {
-	width: 120px;
-	text-align: center;
-}
-
-.avatar img {
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-}
-
-.name {
-	width: 350px;
-}
-
-.progress {
-	width: auto;
-}
 </style>
 </head>
 
 <body>
 
-<h1><%= name %></h1>
-
 <table>
+	<tr>
+		<td class="avatar"><img src="<%= avatarImageURL %>" /></td>
+		<td class="company name"><%= name %></td>
+		<td class="projectProgress blue">
+			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (percentageTowardGoal * 100) %>%;"></span></div>
+			<div class="progressAmountContainer"><%= totalRaisedAmount %> / <%= fundraisingGoal %></div>
+		</td>
+		<td class="donate"></td>
+	</tr>
+
 	<% members.forEach(function(person){ %>
 	<tr>
 		<td class="avatar"><img src="<%= person.avatarImageURL %>" /></td>
-		<td class="name"><%= person.firstName %> <%= person.lastName %></td>
-		<td class="progress projectProgress blue">
+		<td class="name"><a href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=<%= person.participantID %>"><%= person.firstName %> <%= person.lastName %></a></td>
+		<td class="projectProgress blue">
 			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (person.percentageTowardGoal * 100) %>%;"></span></div>
 			<div class="progressAmountContainer"><%= person.totalRaisedAmount %> / <%= person.fundraisingGoal %></div>
 		</td>
+		<td class="donate"><a href="https://www.extra-life.org/index.cfm?fuseaction=donate.participant&participantID=<%= person.participantID %>">Donate</a></td>
 	</tr>
 	<% }); %>
 </table>
