@@ -1,0 +1,19 @@
+{
+  "name": "extra-life-team-dash",
+  "version": "1.0.0",
+  "description": "Team dashboard for Extra Life fundraising",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brockboland/ExtraLifeTeamDash.git"
+  },
+  "author": "Brock Boland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brockboland/ExtraLifeTeamDash/issues"
+  },
+  "homepage": "https://github.com/brockboland/ExtraLifeTeamDash#readme"
+}
