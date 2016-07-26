@@ -1,10 +1,20 @@
 <html>
 <head>
+<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 <style>
 
+body {
+	font-family: NeuzeitGro,sans-serif;
+}
+
 table {
 	width: 100%;
+	color: #061b2b;
+}
+
+a {
+	text-decoration: none;
 }
 
 td.avatar {
@@ -19,11 +29,19 @@ td.avatar img {
 }
 
 td.name {
-	width: 350px;
+	width: 450px;
+	font-size: 40px;
 }
 
+td.name,
+a,
+a:visited {
+	color: #212844;
+}
+
+
 td.company {
-	font-size: 200%;
+	font-weight: bold;
 }
 
 td.donate {
@@ -42,7 +60,6 @@ td.projectProgress
 
 .projectProgress span 
 {
-   background-color: red;
    display: block;
    position: absolute;
    height: 100%;
@@ -72,9 +89,9 @@ td.projectProgress
 	padding-left: 20px;
 }
 
-.projectProgress.blue span.progressBar 
+.projectProgress span.progressBar 
 {
-   background-color: #006be3;
+   background-color: #bdecde;
 }
 
 
@@ -90,9 +107,9 @@ td.projectProgress
 	<tr>
 		<td class="avatar"><img src="<%= avatarImageURL %>" /></td>
 		<td class="company name"><%= name %></td>
-		<td class="projectProgress blue">
+		<td class="projectProgress">
 			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (percentageTowardGoal * 100) %>%;"></span></div>
-			<div class="progressAmountContainer"><%= totalRaisedAmount %> / <%= fundraisingGoal %></div>
+			<div class="progressAmountContainer"><%= totalRaisedAmountFormatted %> / <%= fundraisingGoalFormatted %></div>
 		</td>
 		<td class="donate"></td>
 	</tr>
@@ -101,9 +118,9 @@ td.projectProgress
 	<tr>
 		<td class="avatar"><img src="<%= person.avatarImageURL %>" /></td>
 		<td class="name"><a href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=<%= person.participantID %>"><%= person.firstName %> <%= person.lastName %></a></td>
-		<td class="projectProgress blue">
+		<td class="projectProgress">
 			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (person.percentageTowardGoal * 100) %>%;"></span></div>
-			<div class="progressAmountContainer"><%= person.totalRaisedAmount %> / <%= person.fundraisingGoal %></div>
+			<div class="progressAmountContainer"><%= person.totalRaisedAmountFormatted %> / <%= person.fundraisingGoalFormatted %></div>
 		</td>
 		<td class="donate"><a href="https://www.extra-life.org/index.cfm?fuseaction=donate.participant&participantID=<%= person.participantID %>">Donate</a></td>
 	</tr>
