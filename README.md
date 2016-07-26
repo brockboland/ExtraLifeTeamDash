@@ -1,6 +1,8 @@
 # Extra Life Team Dash
 A team dashboard for Extra Life fundraising. See an example here: https://extra-life-team-dash.herokuapp.com/team/29238
 
+This relies on the consolidated team data that's compiled by this API: https://github.com/brockboland/ExtraLifeTeamInfo
+
 ## Warning
 This Node.js app was cobbled together sloppily by a mobile developer who wanted a quick leaderboard and some data for a prototype project. Do not use anything in here as an example of how anything should ever be done.
 
