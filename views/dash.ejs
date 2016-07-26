@@ -1,0 +1,100 @@
+<html>
+<head>
+
+<style>
+
+/* Progress bars */
+
+td.projectProgress 
+{
+   position: relative;
+   padding: 0px 12px !important;
+}
+
+.projectProgress span 
+{
+   background-color: red;
+   display: block;
+   position: absolute;
+   height: 100%;
+}
+
+/* Position the progress bar and amount on top of one another */
+.progressAmountContainer,
+.progressBarContainer 
+{
+   white-space: nowrap;
+   overflow: hidden;
+   position: absolute;
+   top: 20px;
+   left: 0;
+   width: 100%;
+   height: 60px;
+}
+
+.progressBarContainer 
+{
+   background: rgba(255, 255, 255, .15);
+}
+
+.progressAmountContainer
+{
+	font-size: 50px;
+	padding-left: 20px;
+}
+
+.projectProgress.blue span.progressBar 
+{
+   background-color: #006be3;
+}
+
+
+/* End Progress bars */
+
+
+
+
+table {
+	width: 100%;
+}
+
+.avatar {
+	width: 120px;
+	text-align: center;
+}
+
+.avatar img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+.name {
+	width: 350px;
+}
+
+.progress {
+	width: auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1><%= name %></h1>
+
+<table>
+	<% members.forEach(function(person){ %>
+	<tr>
+		<td class="avatar"><img src="<%= person.avatarImageURL %>" /></td>
+		<td class="name"><%= person.firstName %> <%= person.lastName %></td>
+		<td class="progress projectProgress blue">
+			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (person.percentageTowardGoal * 100) %>%;"></span></div>
+			<div class="progressAmountContainer"><%= person.totalRaisedAmount %> / <%= person.fundraisingGoal %></div>
+		</td>
+	</tr>
+	<% }); %>
+</table>
+
+</body>
+</html>
