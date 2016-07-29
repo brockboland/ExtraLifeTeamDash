@@ -18,8 +18,8 @@
 
 	<body>
 
-		<header class="member" style="height: 12%;">
-			<article class="<%= percentageTowardGoal === 1 ? 'met' : '' %> <%= percentageTowardGoal > 1 ? 'exceed' : '' %>">
+		<header class="member">
+			<a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID=<%= teamID %>" class="<%= percentageTowardGoal === 1 ? 'met' : '' %> <%= percentageTowardGoal > 1 ? 'exceed' : '' %>">
 				<div class="avatar">
 					<img src="<%= avatarImageURL %>">
 				</div>
@@ -28,14 +28,14 @@
 					<div class="goal"><span><%= totalRaisedAmountFormatted %></span> / <span><%= fundraisingGoalFormatted %></span></div>
 				</div>
 				<div class="progress" style="width: calc( <%= ( percentageTowardGoal * 100 ) %>% - 20px );"></div>
-			</article>
+			</a>
 		</header>
 
 		<ol class="members">
 
 			<% members.forEach( function( person ) { %>
-			<li class="member" style="height: 11%;">
-				<article class="<%= person.percentageTowardGoal === 1 ? 'met' : '' %> <%= person.percentageTowardGoal > 1 ? 'exceed' : '' %>">
+			<li class="member">
+				<a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=<%= person.participantID %>" class="<%= person.percentageTowardGoal === 1 ? 'met' : '' %> <%= person.percentageTowardGoal > 1 ? 'exceed' : '' %>">
 					<div class="avatar">
 						<img src="<%= person.avatarImageURL %>">
 					</div>
@@ -44,7 +44,7 @@
 						<div class="goal"><span><%= person.totalRaisedAmountFormatted %></span> / <span><%= person.fundraisingGoalFormatted %></span></div>
 					</div>
 					<div class="progress" style="width: calc( <%= ( person.percentageTowardGoal * 100 ) %>% - 20px );"></div>
-				</article>
+				</a>
 			</li>
 			<% } ); %>
 
