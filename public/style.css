@@ -38,11 +38,6 @@ td.company {
 	font-weight: bold;
 }
 
-td.donate {
-	text-align: right;
-	width: 100px;
-}
-
 /* Progress bars */
 
 td.projectProgress 
