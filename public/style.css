@@ -12,18 +12,18 @@ a {
 }
 
 td.avatar {
-	width: 120px;
+	width: 100px;
 	text-align: center;
 }
 
 td.avatar img {
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
 	border-radius: 50%;
 }
 
 td.name {
-	width: 450px;
+	width: 400px;
 	font-size: 40px;
 }
 
@@ -64,7 +64,7 @@ td.projectProgress
    top: 20px;
    left: 0;
    width: 100%;
-   height: 60px;
+   height: 50px;
 }
 
 .progressBarContainer 
@@ -74,7 +74,7 @@ td.projectProgress
 
 .progressAmountContainer
 {
-	font-size: 50px;
+	font-size: 42px;
 	padding-left: 20px;
 }
 
