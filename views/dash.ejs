@@ -1,43 +1,54 @@
 <html>
-<head>
+	<head>
 
-<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="/style.css" />
+		<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/style.css" />
 
-<meta property="og:description" content="Extra Life leaderboard for team <%= name %>" />
-<meta property="og:image" content="<%= avatarImageURL %>" />
+		<meta property="og:description" content="Extra Life leaderboard for team <%= name %>" />
+		<meta property="og:image" content="<%= avatarImageURL %>" />
 
-<title><%= name %></title>
+		<title><%= name %> @ Extra Life</title>
 
-<script>
-window.setTimeout(function(){location.reload();}, 900000); // Refresh every 15 minutes
-</script>
+		<script>
+			window.setTimeout(function(){location.reload();}, 900000); // Refresh every 15 minutes
+		</script>
 
-</head>
+	</head>
 
-<body>
+	<body>
 
-<table>
-	<tr>
-		<td class="avatar"><a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID=<%= teamID %>"><img src="<%= avatarImageURL %>" /></a></td>
-		<td class="company name"><a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID=<%= teamID %>"><%= name %></a></td>
-		<td class="projectProgress">
-			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (percentageTowardGoal * 100) %>%;"></span></div>
-			<div class="progressAmountContainer"><%= totalRaisedAmountFormatted %> / <%= fundraisingGoalFormatted %></div>
-		</td>
-	</tr>
+		<header class="member" style="height: 12%;">
+			<article class="<%= percentageTowardGoal === 1 ? 'met' : '' %> <%= percentageTowardGoal > 1 ? 'exceed' : '' %>">
+				<div class="avatar">
+					<img src="<%= avatarImageURL %>">
+				</div>
+				<div class="about">
+					<div class="name">Extra Life Progress</div>
+					<div class="goal"><span><%= totalRaisedAmountFormatted %></span> / <span><%= fundraisingGoalFormatted %></span></div>
+				</div>
+				<div class="progress" style="width: calc( <%= ( percentageTowardGoal * 100 ) %>% - 20px );"></div>
+			</article>
+		</header>
 
-	<% members.forEach(function(person){ %>
-	<tr>
-		<td class="avatar"><a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=<%= person.participantID %>"><img src="<%= person.avatarImageURL %>" /></a></td>
-		<td class="name"><a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=<%= person.participantID %>"><%= person.firstName %> <%= person.lastName %></a></td>
-		<td class="projectProgress">
-			<div class="progressBarContainer"><span class="progressBar" style="width: <%= (person.percentageTowardGoal * 100) %>%;"></span></div>
-			<div class="progressAmountContainer"><%= person.totalRaisedAmountFormatted %> / <%= person.fundraisingGoalFormatted %></div>
-		</td>
-	</tr>
-	<% }); %>
-</table>
+		<ol class="members">
 
-</body>
+			<% members.forEach( function( person ) { %>
+			<li class="member" style="height: 11%;">
+				<article class="<%= person.percentageTowardGoal === 1 ? 'met' : '' %> <%= person.percentageTowardGoal > 1 ? 'exceed' : '' %>">
+					<div class="avatar">
+						<img src="<%= person.avatarImageURL %>">
+					</div>
+					<div class="about">
+						<div class="name"><%= person.firstName %> <%= person.lastName %></div>
+						<div class="goal"><span><%= person.totalRaisedAmountFormatted %></span> / <span><%= person.fundraisingGoalFormatted %></span></div>
+					</div>
+					<div class="progress" style="width: calc( <%= ( person.percentageTowardGoal * 100 ) %>% - 20px );"></div>
+				</article>
+			</li>
+			<% } ); %>
+
+		</ol>
+
+	</body>
 </html>
