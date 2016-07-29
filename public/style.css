@@ -5,7 +5,6 @@
 html,
 body {
 	height: 100%;
-	overflow: hidden;
 }
 
 body {
@@ -13,7 +12,6 @@ body {
 }
 
 .members {
-	height: 100%;
 	overflow: hidden;
 	list-style: none;
 }
@@ -21,12 +19,15 @@ body {
 	position: relative;
 	display: block;
 	float: left;
+	height: 118px;
 	width: 50%;
 	padding: 10px;
 }
-.member article {
+.member a {
+	display: block;
 	height: 100%;
 	background-color: #f3f3f3;
+	color: #333333;
 }
 .member .avatar {
 	position: relative;
@@ -76,9 +77,10 @@ body {
 header.member {
 	float: none;
 	width: 100%;
+	height: 130px;
 	padding: 0;
 }
-header.member article {
+header.member a {
 	background-color: #212844;
 }
 header.member .about .name {
@@ -102,4 +104,25 @@ header.member .exceed .progress {
 	max-width: 100%;
 	height: 100%;
 	background-color: #4d619e;
+}
+
+@media( max-width: 1300px )
+{
+	.member {
+		float: none;
+		width: 100%;
+	}
+
+	header.member .about .name {
+		float: none;
+		margin-top: 0;
+		padding-top: 10px;
+		font-size: 55px;
+	}
+	header.member .about .goal {
+		float: none;
+		margin-right: 0;
+		margin-top: 5px;
+		font-size: 40px;
+	}
 }
