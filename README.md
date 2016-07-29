@@ -19,3 +19,9 @@ There are better ways to do this, but I'm using Heroku as a low-cost host for th
 	3. Push to heroku remote
 6. Back in the app dashboard on Heroku, click the Open App button to launch the app.
 7. Navigate to `/team/[teamID]` to see the team dashboard.
+
+## Running locally
+1. Clone or download the repo
+2. At the project root, run `node index.js`
+3. Browse to http://localhost:3000/team/29238
+4. Change the team ID at the tail end of that URL to see your own team's leaderboard.
