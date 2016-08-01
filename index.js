@@ -20,7 +20,7 @@ app.get('/team/:teamID', function (req, res) {
 app.get('/apple-app-site-association', function (req, res) {
 	var options = {
 		headers: {
-			'Content-Type': 'application/pkcs7-mime',
+			'Content-Type': 'application/json',
 		}
 	};
 	res.sendFile(__dirname + '/public/apple-links', options);
