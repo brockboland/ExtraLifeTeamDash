@@ -17,6 +17,15 @@ app.get('/team/:teamID', function (req, res) {
 	getTeamInfo(req.params.teamID, res);
 });
 
+app.get('/apple-app-site-association', function (req, res) {
+	var options = {
+		headers: {
+			'Content-Type': 'application/json',
+		}
+	};
+	res.sendFile(__dirname + '/public/apple-links', options);
+});
+
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
