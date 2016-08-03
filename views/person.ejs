@@ -1,0 +1,32 @@
+<html>
+	<head>
+
+		<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+
+		<title><%= firstName %> <%= lastName %> @ Extra Life</title>
+
+		<script>
+			window.setTimeout(function(){location.reload();}, 900000); // Refresh every 15 minutes
+		</script>
+
+	</head>
+
+	<body>
+
+		<header class="member">
+			<a target="_blank" href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&	participantID=<%= participantID %>" class="<%= percentageTowardGoal === 1 ? 'met' : '' %> <%= percentageTowardGoal > 1 ? 'exceed' : '' %>">
+				<div class="avatar">
+					<img src="<%= avatarImageURL %>">
+				</div>
+				<div class="about">
+					<div class="name"><%= firstName %> <%= lastName %></div>
+					<div class="goal"><span><%= totalRaisedAmountFormatted %></span> / <span><%= fundraisingGoalFormatted %></span></div>
+				</div>
+				<div class="progress" style="width: calc( <%= ( percentageTowardGoal * 100 ) %>% - 20px );"></div>
+			</a>
+		</header>
+
+	</body>
+</html>
