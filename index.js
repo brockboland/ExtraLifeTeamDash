@@ -17,6 +17,10 @@ app.get('/team/:teamID', function (req, res) {
 	getTeamInfo(req.params.teamID, res);
 });
 
+app.get('/person/:personID', function (req, res) {
+	getPersonInfo(req.params.personID, res);
+});
+
 app.get('/apple-app-site-association', function (req, res) {
 	var options = {
 		headers: {
@@ -26,12 +30,13 @@ app.get('/apple-app-site-association', function (req, res) {
 	res.sendFile(__dirname + '/public/apple-links', options);
 });
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 5000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 // Important URLs
 var teamInfoAPIPrefix = "https://extra-life-team-info.herokuapp.com/team/";
+var individualInfoAPIPrefix = "https://extra-life-team-info.herokuapp.com/person/";
 
 function getTeamInfo(teamID, res) {
 	requestModule({ url: teamInfoAPIPrefix + teamID }, function(error, response, body) {
@@ -41,6 +46,21 @@ function getTeamInfo(teamID, res) {
 				res.render('dash', teamInfo);
 			} else {
 				res.render('error', {error: "Failed to parse team info"});
+			}
+		} else {
+			res.render('error', error);
+		}
+	});
+}
+
+function getPersonInfo(personID, res) {
+	requestModule({ url: individualInfoAPIPrefix + personID }, function(error, response, body) {
+		if (!error && response.statusCode == 200) {
+			var personInfo = JSON.parse(body);
+			if (personInfo.participantID > 0) {
+				res.render('person', personInfo);
+			} else {
+				res.render('error', {error: "Failed to parse participant info"});
 			}
 		} else {
 			res.render('error', error);

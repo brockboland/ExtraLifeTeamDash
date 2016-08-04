@@ -4,7 +4,7 @@
         "details": [
             {
                 "appID": "TZPBQT6RZA.io.vokal.ExtraLifeDash",
-                "paths": [ "/team/*" ]
+                "paths": [ "/team/*", "/person/*" ]
             }
         ]
     }
