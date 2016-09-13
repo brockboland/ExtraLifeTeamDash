@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="/reset.css" />
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 
-		<title><%= firstName %> <%= lastName %> @ Extra Life</title>
+		<title><%= displayName %> @ Extra Life</title>
 
 		<script>
 			window.setTimeout(function(){location.reload();}, 1200000); // Refresh every 20 minutes
@@ -21,7 +21,7 @@
 					<img src="<%= avatarImageURL %>">
 				</div>
 				<div class="about">
-					<div class="name"><%= firstName %> <%= lastName %></div>
+					<div class="name"><%= displayName %></div>
 					<div class="goal"><span><%= totalRaisedAmountFormatted %></span> / <span><%= fundraisingGoalFormatted %></span></div>
 				</div>
 				<div class="progress" style="width: calc( <%= ( percentageTowardGoal * 100 ) %>% - 20px );"></div>
